@@ -1,0 +1,82 @@
+<CG>
+    txt_altura: txtAltura  # Referência ao TextInput de altura
+    txt_peso: txtPeso  # Referência ao TextInput de peso
+    lbl_volume: lblVolumePulmao  # Referência ao Label de volume do pulmão
+    lbl_densidade: lblDensidade  # Referência ao Label de densidade
+	lbl_gordura: lblPercentualGordura
+	
+    FloatLayout:
+        size_hint: None, None
+        size: root.width*0.5, root.height
+        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+        BoxLayout:
+            orientation: 'vertical'
+
+            GridLayout:
+                cols: 1
+
+                GridLayout:
+                    cols: 2
+
+					Label:
+						text: "Nome Voluntário"
+					TextInput:
+						id: txtInputNomeVoluntario
+						multiline: False
+
+					Label:
+						text: "Sexo"
+					TextInput:
+						multiline: False
+
+					Label:
+						text: "Idade"
+					TextInput:
+						id: txtInputIdade
+						multiline: False
+
+					Label:
+						text: "Etnia"
+					TextInput:
+						id: txtInputEtnia
+						multiline: False
+
+					Label:
+						text: "Altura (cm)"
+					TextInput:
+						id: txtAltura
+						multiline: False
+
+					Label:
+						text: "Peso (gramas)"
+					TextInput:
+						id: txtPeso
+						multiline: False
+
+                GridLayout:
+                    cols: 1
+
+                    Button:
+                        id: btnShowPly
+                        text: "Exibir malha 3D"
+                        on_press: root.render_ply()
+                    
+                    Label:
+                        text: "Volume Malha: "
+                        
+                    Button:
+                        id: calcular_button
+                        text: "Calcular"
+						on_press: root.calcular()
+
+                    Label:
+						id: lblVolumePulmao
+                        text: "Volume Pulmão: "
+
+                    Label:
+						id: lblDensidade 
+                        text: "Densidade: "
+
+                    Label:
+						id: lblPercentualGordura
+                        text: "% de gordura: "
